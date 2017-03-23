@@ -12,7 +12,7 @@ Python and JavaScript. It aims to be a drop-in replacement for
 First, a simple run command:
 
 ```console
-$ docker run --name isso -p 6667:6667 sheogorath/isso-docker
+$ docker run --name isso -p 8080:80 sheogorath/isso-docker
 ```
 
 This will run an instance of isso with default settings but also won't persist anything.
