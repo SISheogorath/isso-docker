@@ -6,6 +6,7 @@ env:
     - "SRI_SHA512=bx2JCw5L5PIO0b6ek3HohFx3TsNuZsvCwuQKiwqoEqlmg9vDvlBVMzNvcmx3YEZniVXkf7z+uWnb5snZRE4Ong=="
     - "SRI_SHA384=goNhuMdeesV5qJG7lmCG6dMGLYdw43Cne8Yo+OrVFcqVQ5HubiYMXitWbfU3+P5O"
     - "SRI_SHA256=0wJ+yOaVEU4mV/5wHA+cnxymViCDcVTz5IRO0MhxSxw="
+
 services:
   - docker
 
@@ -17,7 +18,9 @@ before_install:
 script:
   - docker build -t isso:testing .
   # Run all tests from test directory
-  - ls tests/*.sh | parallel
+  - ls tests/*.sh | parallel --joblog /tmp/joblog
+  - cat /tmp/joblog
+
 after_success:
   # Run build on Docker Hub
   - '[ "$TRAVIS_EVENT_TYPE" = "cron" ] &&  [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" = "master" ] &&  curl --data build=true -X POST $DOCKER_PUSH_URL'
