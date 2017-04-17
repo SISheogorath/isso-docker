@@ -1,0 +1,17 @@
+sudo: required
+language: bash
+services:
+  - docker
+
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y parallel
+
+
+script:
+  - docker build -t isso:testing .
+  # Run all tests from test directory
+  - ls tests/*.sh | parallel
+after_success:
+  # Run build on Docker Hub
+  - '[ "$TRAVIS_EVENT_TYPE" = "cron" ] &&  [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" = "master" ] &&  curl --data build=true -X POST $DOCKER_PUSH_URL'
