@@ -22,7 +22,7 @@ command_exists() { command -v "$1" >/dev/null 2>&1 || { echo >&2 "I require $1 b
 # See: https://www.shivering-isles.com/helpful-shell-snippets-for-docker-testing-and-bootstrapping/
 version_eq() { test "$1" = "$2"; }  
 
-VERSION=$(docker run --rm --entrypoint /bin/bash isso:testing -c "isso --version" | cut -d" " -f2)
+VERSION=$(docker run --rm --entrypoint /bin/sh isso:testing -c "isso --version" | cut -d" " -f2)
 
 if version_eq "$ISSO_VERSION" "$VERSION"; then
     echo "isso version ($ISSO_VERSION) is correct! Test successful."
