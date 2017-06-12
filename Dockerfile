@@ -1,6 +1,8 @@
-FROM python:3.6
+FROM python:3.6-alpine
 
-RUN pip install isso && mkdir /data
+RUN apk add --no-cache --virtual .build-utils gcc musl-dev && \
+    pip install isso && mkdir /data && \
+    apk del .build-utils
 
 COPY entrypoint.sh /entrypoint.sh
 
