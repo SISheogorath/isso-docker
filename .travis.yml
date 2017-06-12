@@ -6,6 +6,7 @@ env:
     - "SRI_SHA512=bx2JCw5L5PIO0b6ek3HohFx3TsNuZsvCwuQKiwqoEqlmg9vDvlBVMzNvcmx3YEZniVXkf7z+uWnb5snZRE4Ong=="
     - "SRI_SHA384=goNhuMdeesV5qJG7lmCG6dMGLYdw43Cne8Yo+OrVFcqVQ5HubiYMXitWbfU3+P5O"
     - "SRI_SHA256=0wJ+yOaVEU4mV/5wHA+cnxymViCDcVTz5IRO0MhxSxw="
+    - "ISSO_VERSION=0.10.6"
 
 services:
   - docker
