@@ -1,6 +1,9 @@
 Isso
 ===
 
+[![Build Status](https://travis-ci.org/SISheogorath/isso-docker.svg?branch=master)](https://travis-ci.org/SISheogorath/isso-docker)
+[![MadIRC #Admins](https://img.shields.io/badge/MadIRC-%23Admins-green.svg)](https://webclient.madirc.net/?join=%23Admins)
+
 Docker setup for the commenting platform isso.
 
 Isso – *Ich schrei sonst* – is a lightweight commenting server written in
